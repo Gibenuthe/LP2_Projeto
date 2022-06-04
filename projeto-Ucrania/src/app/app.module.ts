@@ -5,6 +5,7 @@ import { AcolhedorInserirComponent } from './acolhedor/acolhedor-inserir.compone
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { AcolhedorListaComponent } from './acolhedor/acolhedor-lista/acolhedor-l
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

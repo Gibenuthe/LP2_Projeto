@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Acolhedor } from '../acolhedor.model';
+import { AcolhedorService } from '../acolhedor.service';
 
 @Component({
   selector: 'app-acolhedor-lista',
@@ -6,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./acolhedor-lista.component.css']
 })
 export class AcolhedorListaComponent implements OnInit {
-  @Input() acolhedores = [];
+  @Input() acolhedores: Acolhedor[] = [];
 
-  constructor() { }
+  constructor(public acolhedorService: AcolhedorService) { }
 
   ngOnInit(): void {
+    this.acolhedores = this.acolhedorService.getAcolhedores();
   }
 
 }
