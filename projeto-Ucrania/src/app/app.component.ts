@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projeto-Ucrania';
+  acolhedores = [];
+  onAcolhedorAdicionado(acolhedor) {
+    this.acolhedores = [...this.acolhedores, acolhedor];
+    }
+
 }

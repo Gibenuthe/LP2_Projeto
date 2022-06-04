@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
 selector: 'app-acolhedor-inserir',
 templateUrl: './acolhedor-inserir.component.html',
 styleUrls: ['./acolhedor-inserir.component.css'],
 })
 export class AcolhedorInserirComponent {
-  nome: string;
-  fone: string;
-  email: string;
-  onAdicionarAcolhedor() {
-    console.log('inserindo acolhedor...');
-    }
-
+  @Output() clienteAdicionado = new EventEmitter();
+  acolhedores = [];
+    constructor() {}
+    onAdicionarAcolhedor() {
+      const cliente = {
+      nome: this.nome,
+      fone: this.fone,
+      email: this.email,
+      };
+      this.clienteAdicionado.emit(cliente);
+      }
 }
+
 

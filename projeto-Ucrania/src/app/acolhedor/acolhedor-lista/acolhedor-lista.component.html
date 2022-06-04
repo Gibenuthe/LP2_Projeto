@@ -1,7 +1,13 @@
-<mat-accordion>
-  <mat-expansion-panel>
-  <mat-expansion-panel-header>Lista de acolhedores</mat-expansion-panel-header>
-  <p>Conteúdo</p>
-  <p>Conteúdo</p>
+<mat-accordion *ngIf="acolhedores.length > 0">
+  <mat-expansion-panel *ngFor="let acolhedor of acolhedores">
+  <mat-expansion-panel-header>
+    Nome: {{ acolhedor.nome }}
+  </mat-expansion-panel-header>
+  <p>Fone: {{ acolhedor.fone }}</p>
+  <hr/>
+  <p>Email: {{ acolhedor.email }}</p>
   </mat-expansion-panel>
   </mat-accordion>
+  <p class="mat-body-1" style="text-align: center;" *ngIf="acolhedores.length <= 0">
+    Nenhum acolhedor cadastrado
+    </p>

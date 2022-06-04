@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-acolhedor-lista',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acolhedor-lista.component.css']
 })
 export class AcolhedorListaComponent implements OnInit {
+  @Input() acolhedores = [];
 
   constructor() { }
 
