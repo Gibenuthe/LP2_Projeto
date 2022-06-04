@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { AcolhedorListaComponent } from './acolhedor/acolhedor-lista/acolhedor-lista.component';
+import { AcolhedorService } from './acolhedor/acolhedor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { AcolhedorListaComponent } from './acolhedor/acolhedor-lista/acolhedor-l
     MatToolbarModule,
     MatExpansionModule,
   ],
-  providers: [],
+  providers: [AcolhedorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
