@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule} from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { AcolhedorListaComponent } from './acolhedor/acolhedor-lista/acolhedor-lista.component';
 import { AcolhedorService } from './acolhedor/acolhedor.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { AcolhedorService } from './acolhedor/acolhedor.service';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -27,6 +30,7 @@ import { AcolhedorService } from './acolhedor/acolhedor.service';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    HttpClientModule,
   ],
   providers: [AcolhedorService],
   bootstrap: [AppComponent]

@@ -15,7 +15,7 @@ export class AcolhedorListaComponent implements OnInit, OnDestroy {
   constructor(public acolhedorService: AcolhedorService) {}
 
   ngOnInit(): void {
-    this.acolhedores = this.acolhedorService.getAcolhedores();
+    this.acolhedorService.getAcolhedores();
     this.acolhedoresSubscription = this.acolhedorService
       .getListaDeAcolhedoresAtualizadaObservable()
       .subscribe((acolhedores: Acolhedor[]) => {
@@ -26,4 +26,9 @@ export class AcolhedorListaComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.acolhedoresSubscription.unsubscribe();
   }
+
+  onDelete (id: string): void{
+    this.acolhedorService.removerAcolhedor(id);
+   }
+
 }
