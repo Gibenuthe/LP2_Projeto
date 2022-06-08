@@ -11,14 +11,17 @@ import { Subscription, Observable } from 'rxjs';
 export class AcolhedorListaComponent implements OnInit, OnDestroy {
   acolhedores: Acolhedor[] = [];
   private acolhedoresSubscription: Subscription;
+  public estaCarregando = false;
 
   constructor(public acolhedorService: AcolhedorService) {}
 
   ngOnInit(): void {
+    this.estaCarregando = true;
     this.acolhedorService.getAcolhedores();
     this.acolhedoresSubscription = this.acolhedorService
       .getListaDeAcolhedoresAtualizadaObservable()
       .subscribe((acolhedores: Acolhedor[]) => {
+        this.estaCarregando = false;
         this.acolhedores = acolhedores;
       });
   }
