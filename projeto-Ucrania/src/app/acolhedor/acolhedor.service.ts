@@ -24,6 +24,10 @@ export class AcolhedorService {
               nome: acolhedor.nome,
               fone: acolhedor.fone,
               email: acolhedor.email,
+              pais: acolhedor.pais,
+              pessoas: acolhedor.pessoas,
+              animais: acolhedor.animais,
+              idiomas: acolhedor.idiomas,
             };
           });
         })
@@ -34,12 +38,24 @@ export class AcolhedorService {
       });
   }
 
-  adicionarAcolhedor(nome: string, fone: string, email: string) {
+  adicionarAcolhedor(
+    nome: string,
+    fone: string,
+    email: string,
+    pais: string,
+    pessoas: Number,
+    animais: boolean,
+    idiomas: string
+  ) {
     const acolhedor: Acolhedor = {
       id: null,
       nome: nome,
       fone: fone,
       email: email,
+      pais: pais,
+      pessoas: pessoas,
+      animais: animais,
+      idiomas: idiomas,
     };
     this.httpClient
       .post<{ mensagem: string; id: string }>(
@@ -65,18 +81,36 @@ export class AcolhedorService {
       });
   }
 
-  atualizarAcolhedor(id: string, nome: string, fone: string, email: string) {
-    const acolhedor: Acolhedor = { id, nome, fone, email };
+  atualizarAcolhedor(
+    id: string,
+    nome: string,
+    fone: string,
+    email: string,
+    pais: string,
+    pessoas: Number,
+    animais: boolean,
+    idiomas: string
+  ) {
+    const acolhedor: Acolhedor = {
+      id,
+      nome,
+      fone,
+      email,
+      pais,
+      pessoas,
+      animais,
+      idiomas,
+    };
     this.httpClient
       .put(`http://localhost:3000/api/acolhedores/${id}`, acolhedor)
-      .subscribe((res) =>  {
+      .subscribe((res) => {
         const copia = [...this.acolhedores];
-        const indice = copia.findIndex (aco => aco.id === acolhedor.id);
+        const indice = copia.findIndex((aco) => aco.id === acolhedor.id);
         copia[indice] = acolhedor;
         this.acolhedores = copia;
         this.listaAcolhedoresAtualizada.next([...this.acolhedores]);
-        this.router.navigate(['/'])
-        });
+        this.router.navigate(['/']);
+      });
   }
 
   getListaDeAcolhedoresAtualizadaObservable() {
@@ -85,7 +119,15 @@ export class AcolhedorService {
 
   getAcolhedor(idAcolhedor: string) {
     //return { ...this.acolhedores.find((aco) => aco.id === idAcolhedor) };
-    return this.httpClient.get<{_id: string, nome: string, fone: string, email:
-      string}>(`http://localhost:3000/api/acolhedores/${idAcolhedor}`);
-       }
+    return this.httpClient.get<{
+      _id: string;
+      nome: string;
+      fone: string;
+      email: string;
+      pais: string;
+      pessoas: Number;
+      animais: boolean;
+      idiomas: string;
+    }>(`http://localhost:3000/api/acolhedores/${idAcolhedor}`);
+  }
 }

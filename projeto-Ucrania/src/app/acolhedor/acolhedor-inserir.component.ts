@@ -30,6 +30,10 @@ export class AcolhedorInserirComponent implements OnInit {
               nome: dadosAco.nome,
               fone: dadosAco.fone,
               email: dadosAco.email,
+              pais: dadosAco.pais,
+              pessoas: dadosAco.pessoas,
+              animais: dadosAco.animais,
+              idiomas: dadosAco.idiomas
             };
           });
       } else {
@@ -52,14 +56,22 @@ export class AcolhedorInserirComponent implements OnInit {
       this.acolhedorService.adicionarAcolhedor(
         form.value.nome,
         form.value.fone,
-        form.value.email
+        form.value.email,
+        form.value.pais,
+        form.value.pessoas,
+        form.value.animais,
+        form.value.idiomas
       );
     } else {
       this.acolhedorService.atualizarAcolhedor(
         this.idAcolhedor,
         form.value.nome,
         form.value.fone,
-        form.value.email
+        form.value.email,
+        form.value.pais,
+        form.value.pessoas,
+        form.value.animais,
+        form.value.idiomas
       );
     }
 
