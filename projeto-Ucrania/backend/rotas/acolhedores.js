@@ -7,6 +7,10 @@ router.post("", (req, res, next) => {
     nome: req.body.nome,
     fone: req.body.fone,
     email: req.body.email,
+    pais: req.body.pais,
+    pessoas: req.body.pessoas,
+    animais: req.body.animais,
+    idiomas: req.body.idiomas,
   });
   acolhedor.save().then((acolhedorInserido) => {
     res.status(201).json({
@@ -37,6 +41,10 @@ router.put("/:id", (req, res, next) => {
     nome: req.body.nome,
     fone: req.body.fone,
     email: req.body.email,
+    pais: req.body.pais,
+    pessoas: req.body.pessoas,
+    animais: req.body.animais,
+    idiomas: req.body.idiomas,
   });
   Acolhedor.updateOne({ _id: req.params.id }, acolhedor).then((resultado) => {
     console.log(resultado);

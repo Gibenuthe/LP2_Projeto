@@ -1,7 +1,11 @@
 <h2>Inserção de acolhedores</h2>
 <mat-card>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
-  <form (submit)="onSalvarAcolhedor(acolhedorForm)" *ngIf="!estaCarregando" #acolhedorForm="ngForm">
+  <form
+    (submit)="onSalvarAcolhedor(acolhedorForm)"
+    *ngIf="!estaCarregando"
+    #acolhedorForm="ngForm"
+  >
     <mat-form-field>
       <input
         required
@@ -39,169 +43,180 @@
       />
       <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
     </mat-form-field>
-    <!-- <mat-form-field>
-      <input
+    <mat-form-field>
+      <mat-label>Selecione um país</mat-label>
+      <select
+        matNativeControl
         required
-        type="text"
-        matInput
         placeholder="país"
-        name="país"
+        name="pais"
         [ngModel]="acolhedor?.pais"
         #pais="ngModel"
-      />
-      <mat-error *ngIf="pais.invalid">Digite um país válido</mat-error>
-    </mat-form-field> -->
-    <select required name="country" class="form-control" id="country" [ngModel]="acolhedor?.pais"
-    #pais="ngModel">
-      <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
-      <optgroup id="country-optgroup-Asia" label="Asia">
-          <option value="AF" label="Afghanistan">Afghanistan</option>
+      >
+        <option value="0" label="Selecione um país ... " selected="selected">
+          Selecione um país ...
+        </option>
+        <optgroup id="country-optgroup-Asia" label="Asia">
+          <option value="AF" label="Afeganistao">Afeganistao</option>
+          <option value="SA" label="Arabia Saudita">Arabia Saudita</option>
           <option value="AM" label="Armenia">Armenia</option>
-          <option value="AZ" label="Azerbaijan">Azerbaijan</option>
-          <option value="BH" label="Bahrain">Bahrain</option>
+          <option value="AZ" label="Azerbaijao">Azerbaijao</option>
+          <option value="BH" label="Bahrein">Bahrein</option>
           <option value="BD" label="Bangladesh">Bangladesh</option>
-          <option value="BT" label="Bhutan">Bhutan</option>
-          <option value="BN" label="Brunei">Brunei</option>
-          <option value="KH" label="Cambodia">Cambodia</option>
+	  <option value="BN" label="Brunei">Brunei</option>
+          <option value="BT" label="Butao">Butao</option>
+          <option value="KH" label="Camboja">Camboja</option>
+	  <option value="KZ" label="Cazaquistao">Cazaquistao</option>
           <option value="CN" label="China">China</option>
+	  <option value="KP" label="Coreia do Norte">Coreia do Norte</option>
+          <option value="KR" label="Coreia do Sul">Coreia do Sul</option>
+          <option value="AE" label="Emirados Arabes">Emirados Arabes</option>
+          <option value="PH" label="Filipinas">Filipinas</option>
           <option value="GE" label="Georgia">Georgia</option>
           <option value="HK" label="Hong Kong SAR China">Hong Kong SAR China</option>
+	  <option value="YE" label="Iemen">Iemen</option>
           <option value="IN" label="India">India</option>
           <option value="ID" label="Indonesia">Indonesia</option>
-          <option value="IR" label="Iran">Iran</option>
-          <option value="IQ" label="Iraq">Iraq</option>
+          <option value="IR" label="Ira">Ira</option>
+          <option value="IQ" label="Iraque">Iraque</option>
           <option value="IL" label="Israel">Israel</option>
-          <option value="JP" label="Japan">Japan</option>
-          <option value="JO" label="Jordan">Jordan</option>
-          <option value="KZ" label="Kazakhstan">Kazakhstan</option>
+          <option value="JP" label="Japao">Japao</option>
+          <option value="JO" label="Jordania">Jordania</option>
           <option value="KW" label="Kuwait">Kuwait</option>
-          <option value="KG" label="Kyrgyzstan">Kyrgyzstan</option>
           <option value="LA" label="Laos">Laos</option>
-          <option value="LB" label="Lebanon">Lebanon</option>
+          <option value="LB" label="Libano">Libano</option>
           <option value="MO" label="Macau SAR China">Macau SAR China</option>
-          <option value="MY" label="Malaysia">Malaysia</option>
-          <option value="MV" label="Maldives">Maldives</option>
+          <option value="MY" label="Malasia">Malasia</option>
+          <option value="MV" label="Maldivas">Maldivas</option>
           <option value="MN" label="Mongolia">Mongolia</option>
           <option value="MM" label="Myanmar [Burma]">Myanmar [Burma]</option>
           <option value="NP" label="Nepal">Nepal</option>
-          <option value="NT" label="Neutral Zone">Neutral Zone</option>
-          <option value="KP" label="North Korea">North Korea</option>
-          <option value="OM" label="Oman">Oman</option>
-          <option value="PK" label="Pakistan">Pakistan</option>
-          <option value="PS" label="Palestinian Territories">Palestinian Territories</option>
-          <option value="YD" label="People's Democratic Republic of Yemen">People's Democratic Republic of Yemen</option>
-          <option value="PH" label="Philippines">Philippines</option>
+          <option value="OM" label="Oma">Oma</option>
+          <option value="PS" label="Palestina">Palestina</option>
+          <option value="PK" label="Paquistao">Paquistao</option>
           <option value="QA" label="Qatar">Qatar</option>
-          <option value="SA" label="Saudi Arabia">Saudi Arabia</option>
-          <option value="SG" label="Singapore">Singapore</option>
-          <option value="KR" label="South Korea">South Korea</option>
+	  <option value="KG" label="Quirguistao">Quirguistao</option>
+          <option value="YD" label="Rep. Dem. Iemen">Rep. Dem. Iemen</option>
+          <option value="SG" label="Singapura">Singapura</option>
           <option value="LK" label="Sri Lanka">Sri Lanka</option>
-          <option value="SY" label="Syria">Syria</option>
+          <option value="SY" label="Siria">Siria</option>
           <option value="TW" label="Taiwan">Taiwan</option>
-          <option value="TJ" label="Tajikistan">Tajikistan</option>
-          <option value="TH" label="Thailand">Thailand</option>
+          <option value="TJ" label="Tadjiquistao">Tadjiquistao</option>
+          <option value="TH" label="Tailandia">Tailandia</option>
           <option value="TL" label="Timor-Leste">Timor-Leste</option>
-          <option value="TR" label="Turkey">Turkey</option>
-          <option value="TM" label="Turkmenistan">Turkmenistan</option>
-          <option value="AE" label="United Arab Emirates">United Arab Emirates</option>
-          <option value="UZ" label="Uzbekistan">Uzbekistan</option>
-          <option value="VN" label="Vietnam">Vietnam</option>
-          <option value="YE" label="Yemen">Yemen</option>
+          <option value="TR" label="Turquia">Turquia</option>
+          <option value="TM" label="Turcomenistao">Turcomenistao</option>
+          <option value="UZ" label="Uzbequistao">Uzbequistao</option>
+          <option value="VN" label="Vietna">Vietna</option>
       </optgroup>
       <optgroup id="country-optgroup-Europe" label="Europe">
           <option value="AL" label="Albania">Albania</option>
           <option value="AD" label="Andorra">Andorra</option>
           <option value="AT" label="Austria">Austria</option>
           <option value="BY" label="Belarus">Belarus</option>
-          <option value="BE" label="Belgium">Belgium</option>
-          <option value="BA" label="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+          <option value="BE" label="Belgica">Belgica</option>
+          <option value="BA" label="Bosnia e Herzegovina">Bosnia e Herzegovina</option>
           <option value="BG" label="Bulgaria">Bulgaria</option>
-          <option value="HR" label="Croatia">Croatia</option>
-          <option value="CY" label="Cyprus">Cyprus</option>
-          <option value="CZ" label="Czech Republic">Czech Republic</option>
-          <option value="DK" label="Denmark">Denmark</option>
-          <option value="DD" label="East Germany">East Germany</option>
+          <option value="HR" label="Croacia">Croacia</option>
+          <option value="CY" label="Chipre">Chipre</option>
+          <option value="CZ" label="Republica Checa">Republica Checa</option>
+          <option value="DK" label="Dinamarca">Dinamarca</option>
           <option value="EE" label="Estonia">Estonia</option>
-          <option value="FO" label="Faroe Islands">Faroe Islands</option>
-          <option value="FI" label="Finland">Finland</option>
-          <option value="FR" label="France">France</option>
-          <option value="DE" label="Germany">Germany</option>
+          <option value="FO" label="Ilhas Faroe">Ilhas Faroe</option>
+          <option value="FI" label="Finlandia">Finlandia</option>
+          <option value="FR" label="Franca">Franca</option>
+          <option value="DE" label="Alemanha">Alemanha</option>
           <option value="GI" label="Gibraltar">Gibraltar</option>
-          <option value="GR" label="Greece">Greece</option>
+          <option value="GR" label="Grecia">Grecia</option>
           <option value="GG" label="Guernsey">Guernsey</option>
-          <option value="HU" label="Hungary">Hungary</option>
-          <option value="IS" label="Iceland">Iceland</option>
-          <option value="IE" label="Ireland">Ireland</option>
-          <option value="IM" label="Isle of Man">Isle of Man</option>
-          <option value="IT" label="Italy">Italy</option>
+          <option value="HU" label="Hungria">Hungria</option>
+          <option value="IS" label="Islandia">Islandia</option>
+          <option value="IE" label="Irlanda">Irlanda</option>
+          <option value="IM" label="Ilha de Man">Ilha de Man</option>
+          <option value="IT" label="Italia">Italia</option>
           <option value="JE" label="Jersey">Jersey</option>
-          <option value="LV" label="Latvia">Latvia</option>
+          <option value="LV" label="Letonia">Letonia</option>
           <option value="LI" label="Liechtenstein">Liechtenstein</option>
-          <option value="LT" label="Lithuania">Lithuania</option>
-          <option value="LU" label="Luxembourg">Luxembourg</option>
+          <option value="LT" label="Lituania">Lituania</option>
+          <option value="LU" label="Luxemburgo">Luxemburgo</option>
           <option value="MK" label="Macedonia">Macedonia</option>
           <option value="MT" label="Malta">Malta</option>
-          <option value="FX" label="Metropolitan France">Metropolitan France</option>
-          <option value="MD" label="Moldova">Moldova</option>
+          <option value="MD" label="Moldavia">Moldavia</option>
           <option value="MC" label="Monaco">Monaco</option>
           <option value="ME" label="Montenegro">Montenegro</option>
-          <option value="NL" label="Netherlands">Netherlands</option>
-          <option value="NO" label="Norway">Norway</option>
-          <option value="PL" label="Poland">Poland</option>
+          <option value="NL" label="Holanda">Holanda</option>
+          <option value="NO" label="Noruega">Noruega</option>
+          <option value="PL" label="Polonia">Polonia</option>
           <option value="PT" label="Portugal">Portugal</option>
-          <option value="RO" label="Romania">Romania</option>
+          <option value="RO" label="Romenia">Romenia</option>
           <option value="RU" label="Russia">Russia</option>
           <option value="SM" label="San Marino">San Marino</option>
-          <option value="RS" label="Serbia">Serbia</option>
-          <option value="CS" label="Serbia and Montenegro">Serbia and Montenegro</option>
-          <option value="SK" label="Slovakia">Slovakia</option>
-          <option value="SI" label="Slovenia">Slovenia</option>
-          <option value="ES" label="Spain">Spain</option>
-          <option value="SJ" label="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-          <option value="SE" label="Sweden">Sweden</option>
-          <option value="CH" label="Switzerland">Switzerland</option>
-          <option value="UA" label="Ukraine">Ukraine</option>
-          <option value="SU" label="Union of Soviet Socialist Republics">Union of Soviet Socialist Republics</option>
-          <option value="GB" label="United Kingdom">United Kingdom</option>
-          <option value="VA" label="Vatican City">Vatican City</option>
-          <option value="AX" label="Åland Islands">Åland Islands</option>
-      </optgroup>
-  </select>
+          <option value="RS" label="Servia">Servia</option>
+          <option value="SK" label="Eslovaquia">Eslovaquia</option>
+          <option value="SI" label="Eslovenia">Eslovenia</option>
+          <option value="ES" label="Espanha">Espanha</option>
+          <option value="SJ" label="Svalbard e Jan Mayen">Svalbard e Jan Mayen</option>
+          <option value="SE" label="Suecia">Suecia</option>
+          <option value="CH" label="Suica">Suica</option>
+          <option value="UA" label="Ucrania">Ucrania</option>
+          <option value="GB" label="Reino Unido">Reino Unido</option>
+          <option value="VA" label="Vaticano">Vaticano</option>
+          <option value="AX" label="Ilhas Åland">Ilhas Åland</option>
+        </optgroup>
+      </select>
+    </mat-form-field>
     <mat-form-field>
       <input
         required
         type="number"
+        min=1
         matInput
-        placeholder= "número de pessoas"
+        placeholder="número de pessoas"
         name="pessoas"
         [ngModel]="acolhedor?.pessoas"
         #pessoas="ngModel"
       />
-      <mat-error *ngIf="pessoas.invalid">Digite um número de pessoas válido</mat-error>
+      <mat-error *ngIf="pessoas.invalid"
+        >Digite um número de pessoas válido</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
-      <input
+      <mat-label>Possui animais ?</mat-label>
+      <select
+        matNativeControl
         required
-        type=boolean
-        matInput
-        placeholder= "animais? 1-Sim  2-Não"
-        name="1-Sim, 2-Não"
+        placeholder=""
+        name="animais"
         [ngModel]="acolhedor?.animais"
         #animais="ngModel"
-      />
-      <mat-error *ngIf="animais.invalid">Selecione uma opção válida</mat-error>
+        >
+        <option value=true > Sim </option>
+        <option value=false > Não </option>
+      </select>
     </mat-form-field>
     <mat-form-field>
-      <input
+      <mat-label>Idiomas</mat-label>
+      <select
+        matNativeControl
         required
-        type="text"
-        matInput
-        placeholder="idiomas"
+        placeholder=""
         name="idiomas"
         [ngModel]="acolhedor?.idiomas"
         #idiomas="ngModel"
-      />
-      <mat-error *ngIf="idiomas.invalid">Digite um idioma válido</mat-error>
+        >
+        <option value="Alemão" > Alemão </option>
+        <option value="Árabe" > Árabe </option>
+        <option value="Espanhol" > Espanhol </option>
+        <option value="Francês" > Francês </option>
+        <option value="Húngaro" > Húngaro </option>
+        <option value="Inglês" > Inglês </option>
+        <option value="Italiano" > Italiano </option>
+        <option value="Polonês" > Polonês </option>
+        <option value="Romeno" > Romeno </option>
+        <option value="Russo" > Russo </option>
+        <option value="Turco" > Turco </option>
+        <option value="Ucraniano" > Ucraniano </option>
+      </select>
     </mat-form-field>
     <button color="accent" mat-raised-button>Salvar Acolhedor</button>
   </form>

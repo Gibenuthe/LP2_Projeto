@@ -1,6 +1,6 @@
 //olaola//
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgForm, NgSelectOption } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Acolhedor } from './acolhedor.model';
 import { AcolhedorService } from './acolhedor.service';

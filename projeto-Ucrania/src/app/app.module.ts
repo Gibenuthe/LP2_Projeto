@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AcolhedorInserirComponent } from './acolhedor/acolhedor-inserir.component';
@@ -35,6 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
   ],
   providers: [AcolhedorService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
