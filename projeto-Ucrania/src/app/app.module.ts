@@ -16,10 +16,12 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { AcolhedorListaComponent } from './acolhedor/acolhedor-lista/acolhedor-lista.component';
 import { AcolhedorService } from './acolhedor/acolhedor.service';
 import { AppRoutingModule } from './app-routing.module';
+import { BuscaComponent } from './busca/busca.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent, AcolhedorInserirComponent, CabecalhoComponent, AcolhedorListaComponent
+    AppComponent, AcolhedorInserirComponent, CabecalhoComponent, AcolhedorListaComponent,BuscaComponent
   ],
   imports: [
     BrowserModule,

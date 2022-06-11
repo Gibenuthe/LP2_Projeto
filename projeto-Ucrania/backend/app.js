@@ -1,13 +1,14 @@
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const acolhedorRoutes = require("./rotas/acolhedores");
 
+
 mongoose
   .connect(
-    "mongodb+srv://Trab_refugiado:Ucrania123@cluster0.uw1pvuu.mongodb.net/AcolhedoresDB?retryWrites=true&w=majority"
-  )
+    "mongodb+srv://Trab_refugiado:Ucrania123@cluster0.uw1pvuu.mongodb.net/AcolhedoresDB?retryWrites=true&w=majority")
   .then(() => {
     console.log("Conexão OK");
   })
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/acolhedores", acolhedorRoutes);
 
+
+app.use("/api/acolhedores", acolhedorRoutes);
 module.exports = app;

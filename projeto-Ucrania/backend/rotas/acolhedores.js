@@ -62,4 +62,37 @@ router.get("", (req, res, next) => {
   });
 });
 
+router.get("/busca", (req, res, next) => {
+  Acolhedor.findAll(req.params.id).then(() => {
+  const nome = req.query.nome;
+  var condition = nome ? { nome: { $regex: new RegExp(nome), $options: "i" } } : {};
+  Acolhedor.find(condition)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving tutorials."
+      });
+    });
+  });
+});
+
+router.get('/filters', (req, res, next) => {
+  const fields = ['make', 'model', 'year'];
+  const dbRequests = fields.map(field => 
+    req.collection
+      .distinct(field)
+      .then(data => ({ field, data: data.sort() }))
+    );
+  
+  Promise.all(dbRequests)
+    .then(results => {
+      const reducedResults = results.reduce((acc, {field, data}) => ({ ...acc, [field]: data }), {})
+      res.json(reducedResults);
+    })
+    .catch(err => res.send(err));
+});
+
 module.exports = router;
