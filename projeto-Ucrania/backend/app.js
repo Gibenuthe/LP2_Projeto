@@ -1,19 +1,26 @@
-
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const acolhedorRoutes = require("./rotas/acolhedores");
 
+const {
+  MONGODB_USER,
+  MONGODB_PASSWORD,
+  MONGODB_CLUSTER,
+  MONGODB_DATABASE
+} = process.env
+
 
 mongoose
   .connect(
-    "mongodb+srv://Trab_refugiado:Ucrania123@cluster0.uw1pvuu.mongodb.net/AcolhedoresDB?retryWrites=true&w=majority")
+    `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_CLUSTER}.uw1pvuu.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`)
   .then(() => {
     console.log("Conexão OK");
   })
   .catch((e) => {
-    console.log("Conexão NOK: " + e);
+    console.log("Conexão NOK: " + e + `${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_CLUSTER}.uw1pvuu.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`);
   });
 app.use(bodyParser.json());
 
